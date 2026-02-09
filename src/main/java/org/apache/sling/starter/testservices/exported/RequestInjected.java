@@ -16,6 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+package org.apache.sling.starter.testservices.exported;
 
-@org.osgi.annotation.versioning.Version("2.1.0")
-package org.apache.sling.starter.testservices.models;
+public interface RequestInjected {
+
+    boolean isRequestInjected();
+}
