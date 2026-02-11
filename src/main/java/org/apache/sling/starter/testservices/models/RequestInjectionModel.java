@@ -16,6 +16,23 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
-@org.osgi.annotation.versioning.Version("2.1.0")
 package org.apache.sling.starter.testservices.models;
+
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.Self;
+import org.apache.sling.starter.testservices.exported.RequestInjected;
+
+@SuppressWarnings("deprecation")
+@Model(adaptables = SlingHttpServletRequest.class, adapters = RequestInjected.class)
+// TODO - do we need to implement an interface to trigger the error??
+public class RequestInjectionModel implements RequestInjected {
+
+    @Self
+    private SlingHttpServletRequest slingRequest;
+
+    @Override
+    public boolean isRequestInjected() {
+        return slingRequest != null;
+    }
+}

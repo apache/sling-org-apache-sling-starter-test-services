@@ -23,12 +23,16 @@ import javax.annotation.PostConstruct;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.Self;
 
 @Model(adaptables = SlingHttpServletRequest.class, resourceType = "sling/test/htl/model")
 @Exporter(name = "jackson", extensions = "json")
 public class DummyModel {
 
     private String message;
+
+    @Self
+    private SlingHttpServletRequest request;
 
     @PostConstruct
     public void init() {
