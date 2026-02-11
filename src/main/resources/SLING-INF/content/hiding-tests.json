@@ -1,0 +1,8 @@
+{
+	"servlets" : {
+		"sling:resourceType" : "testing/hideservlets"
+	},
+	"scripts" : {
+		"sling:resourceType" : "testing/hidescripts"
+	}
+}
